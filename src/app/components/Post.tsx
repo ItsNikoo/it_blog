@@ -1,6 +1,8 @@
-import {BookmarkIcon, ChatBubbleLeftIcon, EyeIcon, HeartIcon} from "@heroicons/react/24/outline";
-import {BookmarkIcon as BookmarkSolid, HeartIcon as HeartSolid} from "@heroicons/react/24/solid";
-import {Post} from "@/types";
+import {BookmarkIcon, ChatBubbleLeftIcon, EyeIcon, HeartIcon} from "@heroicons/react/24/outline"
+import {BookmarkIcon as BookmarkSolid, HeartIcon as HeartSolid} from "@heroicons/react/24/solid"
+import {Post} from "@/types"
+import Link from "next/link"
+import {ROUTES} from "@/config/navigation"
 
 interface Props {
   post: Post
@@ -21,9 +23,11 @@ export default function PostCard({post}: Props) {
           <span className="text-sm text-gray-500">{post.date}</span>
         </div>
 
-        <h2 className="text-2xl font-bold text-gray-900 mt-3 mb-1">
-          {post.title}
-        </h2>
+        <Link href={`${ROUTES.ARTICLES.href}/${post.id}`}>
+          <h2 className="text-2xl font-bold text-gray-900 mt-3 mb-1">
+            {post.title}
+          </h2>
+        </Link>
 
         <p className="text-base text-gray-600 leading-relaxed">
           {post.text}
@@ -53,7 +57,9 @@ export default function PostCard({post}: Props) {
               {post.author[0].toUpperCase()}
             </div>
             <div>
-              <p className="font-semibold text-gray-900">{post.author}</p>
+              <Link href={` / profile / ${post.author.replace('@', '')}`} className="font-semibold text-gray-900">
+                {post.author}
+              </Link>
               <p className="text-xs text-gray-500">Автор</p>
             </div>
           </div>

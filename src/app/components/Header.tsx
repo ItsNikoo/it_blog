@@ -1,5 +1,9 @@
+'use client'
+
 import Image from "next/image"
 import Link from "next/link"
+import ButtonWithMenu from "@/app/components/ui/ButtonWithMenu"
+import {ROUTES, streamsDropdown} from "@/config/navigation"
 
 export default function Header() {
   return (
@@ -15,8 +19,11 @@ export default function Header() {
           />
         </Link>
         <div className="flex gap-6">
-          <Link className="font-medium" href="/potoki">Потоки</Link>
-          <Link className="font-medium"  href="/about">О нас</Link>
+          <ButtonWithMenu
+            menu={streamsDropdown}>
+            {ROUTES.STREAMS.title}
+          </ButtonWithMenu>
+          <Link className="font-medium" href={ROUTES.ABOUT.href}>{ROUTES.ABOUT.title}</Link>
         </div>
       </div>
 

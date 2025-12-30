@@ -11,3 +11,8 @@ export interface Post{
   date: string
   tags: string[]
 }
+
+export interface MenuItemProps {
+  title: string
+  href: string
+}

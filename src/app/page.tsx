@@ -1,5 +1,5 @@
-import posts from "../../data/posts";
-import PostCard from "@/app/components/Post";
+import posts from "../../data/posts"
+import PostCard from "@/app/components/Post"
 
 export default function Home() {
   return (
@@ -10,5 +10,5 @@ export default function Home() {
         ))}
       </div>
     </div>
-  );
+  )
 }
